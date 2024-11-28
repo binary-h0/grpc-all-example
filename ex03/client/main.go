@@ -13,7 +13,7 @@ import (
 
 func main() {
 	creds := credentials.NewTLS(&tls.Config{InsecureSkipVerify: true})
-	conn, err := grpc.Dial("localhost:50053", grpc.WithTransportCredentials(creds))
+	conn, err := grpc.NewClient("localhost:50053", grpc.WithTransportCredentials(creds))
 	if err != nil {
 		log.Fatalf("Failed to connect: %v", err)
 	}
