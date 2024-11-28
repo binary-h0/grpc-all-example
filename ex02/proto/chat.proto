@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "./";
+
+service ChatService {
+  // 양방향 스트리밍 RPC 정의
+  rpc Chat (stream ChatMessage) returns (stream ChatMessage);
+}
+
+message ChatMessage {
+  string user = 1;    // 사용자 이름
+  string message = 2; // 메시지 내용
+}
