@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package stream;
+
+option go_package = "./";
+
+service StreamingService {
+  rpc SendData(Empty) returns (stream SensorData);
+}
+
+message SensorData {
+  string sensor_id = 1;
+  double temperature = 2;
+  double humidity = 3;
+  int64 timestamp = 4;
+}
+
+message Empty {}
